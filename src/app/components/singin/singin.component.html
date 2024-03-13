@@ -1,0 +1,57 @@
+<section class="grid grid-cols-3 gap-4 bg-gray-50 h-dvh">
+    <div class="col-span-2 h-screen	" >
+        <img src="../../../assets/images/SignIn.png" >
+    </div>
+    <div class="w-full lg:max-w-xl p-6 space-y-8 sm:p-8 m-auto mt-56">
+        <h2 class="text-2xl text-center font-bold text-gray-900">
+            Sign in 
+        </h2>
+        <form class="space-y-6  mt-80 " action="#"
+            name="form"
+            (ngSubmit)="f.form.valid && onSubmit()"
+            #f="ngForm"
+            novalidate
+        >
+            <div>
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
+                <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="aaaaaa@emil.com" required
+                    type="email"
+                    name="email"
+                    [(ngModel)]="form.email"
+                    required
+                    #email="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+                >
+            </div>
+            <div>
+                <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Your password</label>
+                    <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required
+                    type="password"
+                    name="password"
+                    [(ngModel)]="form.password"
+                    required
+                    minlength="6"
+                    #password="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+                >
+            </div>
+            <div class="flex items-start">
+                <div class="flex items-center h-5">
+                    <input id="remember" aria-describedby="remember" name="remember" type="checkbox" class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300" required>
+                </div>
+                <div class="ms-3 text-sm">
+                <label for="remember" class="font-medium text-gray-500">Remember this device</label>
+                </div>
+                <a href="#" class="ms-auto text-sm font-medium text-blue-600 hover:underline">Lost Password?</a>
+            </div>
+            <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white  focus:ring-4 focus:outline-none focus:ring-blue-300">
+                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
+                    Login
+                </span>
+            </button>
+            <div class="text-sm font-medium text-gray-900">
+                Not registered yet? <a class="text-blue-600 hover:underline" [routerLink]="['/register']">Create account</a>
+              </div>              
+        </form>
+    </div>
+</section>
