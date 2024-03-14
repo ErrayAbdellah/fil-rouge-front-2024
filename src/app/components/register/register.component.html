@@ -1,0 +1,54 @@
+<section class="grid grid-cols-3 gap-4 bg-gray-50 h-dvh">
+    <div class="col-span-2 h-screen">
+      <img src="../../../assets/images/SignIn.png">
+    </div>
+    <div class="w-full lg:max-w-xl p-6 space-y-8 sm:p-8 m-auto mt-56">
+      <h2 class="text-2xl text-center font-bold text-gray-900">Register</h2>
+      <form class="space-y-6 mt-80" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+        <div>
+          <label for="profilePictureUrl" class="block mb-2 text-sm font-medium text-gray-900">Profile Picture</label>
+          <input type="file" id="profilePictureUrl" name="profilePictureUrl"  accept="image/*" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+        </div>
+        <div>
+          <label for="firstName" class="block mb-2 text-sm font-medium text-gray-900">First Name</label>
+          <input type="text" id="firstName" name="firstName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="First Name" required
+            [(ngModel)]="form.firstName" name="firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.errors }">
+        </div>
+        <div>
+          <label for="lastName" class="block mb-2 text-sm font-medium text-gray-900">Last Name</label>
+          <input type="text" id="lastName" name="lastName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Last Name" required
+            [(ngModel)]="form.lastName" name="lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.errors }">
+        </div>
+        <div>
+          <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
+          <input type="email" id="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Email" required
+            [(ngModel)]="form.email" name="email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.errors }">
+        </div>
+        <div>
+          <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+          <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Password" required
+            [(ngModel)]="form.password" name="password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }">
+        </div>
+        <div>
+          <label for="bio" class="block mb-2 text-sm font-medium text-gray-900">Bio</label>
+          <textarea id="bio" name="bio" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Bio" required
+            [(ngModel)]="form.bio" name="bio" #bio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bio.errors }"></textarea>
+        </div>
+        <div>
+          <label for="profilePictureUrl" class="block mb-2 text-sm font-medium text-gray-900">Profile Picture URL</label>
+          <input type="text" id="profilePictureUrl" name="profilePictureUrl" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Profile Picture URL" required
+            [(ngModel)]="form.profilePictureUrl" name="profilePictureUrl" #profilePictureUrl="ngModel" [ngClass]="{ 'is-invalid': f.submitted && profilePictureUrl.errors }">
+        </div>
+        <!-- Add gender selection dropdown or radio buttons here -->
+        <button type="submit" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300">
+          <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">Register</span>
+        </button>
+        <div class="text-sm font-medium text-gray-900">
+            i have account ? <a class="text-blue-600 hover:underline" [routerLink]="['/login']">sing in </a>
+          </div> 
+        <div *ngIf="isRegistrationFailed" class="text-red-500 text-sm">{{ errorMessage }}</div>
+        <div *ngIf="isRegistrationSuccess" class="text-green-500 text-sm">Registration successful! You can now <a [routerLink]="['/login']" class="text-blue-600 hover:underline">sign in</a>.</div>
+      </form>
+    </div>
+  </section>
+  
