@@ -9,8 +9,8 @@ import { adminGuard } from './_guards/admin.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: '', pathMatch: 'full'},
-  { path: 'dashboard-users' , component: UsersComponent, canActivate: [adminGuard] },
+  // { path: '', redirectTo: '', pathMatch: 'full', canActivate: [authGuard]},
+  { path: 'dashboard-users' , component: UsersComponent, canActivate: [adminGuard,adminGuard] },
   { path: 'profile' , component: ProfileComponent ,canActivate: [authGuard]},
   { path: 'login', component: SinginComponent  },
   { path: 'register', component: RegisterComponent },
