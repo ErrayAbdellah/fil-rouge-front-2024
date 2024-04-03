@@ -18,7 +18,7 @@ export class CreatePostComponent {
   imagePreview: string | ArrayBuffer | null = null; // Variable to hold the selected image preview
 
 
-  constructor(private postService: PostService, private router: Router,private fireStorage:AngularFireStorage) {}
+  constructor(private postService: PostService,private fireStorage:AngularFireStorage) {}
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
     if (file) {
